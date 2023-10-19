@@ -1,0 +1,5 @@
+{
+    "nasm.reportWarnings": true,
+    "nasm.nasmPath": "/opt/homebrew/bin/nasm",
+    "nasm.validate": true,
+}
