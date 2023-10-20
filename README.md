@@ -88,3 +88,41 @@ _start:
 section .data
     ; dados aqui
 ```
+
+### Instruções
+
+As instruções são os comandos que o processador executa. Cada instrução é representada por um código de operação (opcode) que indica o tipo de instrução e os operandos que a acompanham. Os operandos podem ser registradores, valores imediatos, endereços de memória ou rótulos. Aqui estão alguns exemplos de instruções:
+
+```assembly
+mov eax, 0x1234 ; move o valor 0x1234 para o registrador eax
+add eax, ebx ; adiciona o valor do registrador ebx ao registrador eax
+jmp 0x1234 ; salta para o endereço 0x1234
+```
+
+### Syscalls
+
+Syscalls são chamadas de sistemas para que seja possível interagir com o sistema operacional, como existem
+niveis de privilégio, nenhum programa pode acessar diretamente os recursos do sistema operacional, então
+é necessário fazer uma chamada de sistema para que o sistema operacional execute a ação desejada.
+
+Para fazer uma syscall é necessário colocar o numero da syscall no registrador rax e os argumentos nos registradores
+
+```assembly
+mov rax, 1 ; numero da syscall
+
+; registradores de argumentos disponíveis para syscalls, todas syscalls tem limite de 6 argumentos, os registradores são:
+
+; rdi, rsi, rdx, r10, r8, r9
+
+mov rdi, 1 ; primeiro argumento
+mov rsi, 0x1234 ; segundo argumento
+mov rdx, 0x5678 ; terceiro argumento
+mov r10, 0x9abc ; quarto argumento
+mov r8, 0xdef0 ; quinto argumento
+mov r9, 0x1234 ; sexto argumento
+
+syscall ; executa a syscall
+```
+
+
+
