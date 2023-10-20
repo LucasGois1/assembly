@@ -124,7 +124,9 @@ mov r9, 0x1234 ; sexto argumento
 syscall ; executa a syscall
 ```
 
-    Dica: push rax ; salva o valor de rax na pilha (poderia ser outro registrador)
-          pop rax ; recupera o valor de rax da pilha
+    **Dica** 
+    
+    push rax ; salva o valor de rax na pilha (poderia ser outro registrador)
+    pop rax ; recupera o valor de rax da pilha
 
-          Portanto a pilha também pode ser usada para salvar valores de registradores
+    Portanto a pilha também pode ser usada para salvar valores de registradores
