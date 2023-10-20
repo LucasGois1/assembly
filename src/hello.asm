@@ -26,7 +26,7 @@ print_name:
 
 finish:
     MOV rax, 0x2000001 ; system call para sair do programa
-    MOV rdi, 0 ; código de saída do programa
+    XOR rdi, rdi ; código de saída do programa == 0, sem erros... poderia ser MOV rdi, 0
     syscall
 
 section .bss

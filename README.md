@@ -1,6 +1,6 @@
 # Assembly x86-64 Intel NASM
 
-# Como funciona um processador?
+## Como funciona um processador?
 
 ## Registradores
 
@@ -124,5 +124,7 @@ mov r9, 0x1234 ; sexto argumento
 syscall ; executa a syscall
 ```
 
+    Dica: push rax ; salva o valor de rax na pilha (poderia ser outro registrador)
+          pop rax ; recupera o valor de rax da pilha
 
-
+          Portanto a pilha também pode ser usada para salvar valores de registradores
