@@ -1,5 +1,7 @@
 # Assembly x86-64 Intel NASM
 
+# Como funciona um processador?
+
 ## Registradores
 
 Registradores são elementos de armazenamento de alta velocidade localizados na Unidade de Processamento Central (CPU) de um computador. Eles são usados para armazenar dados temporários e informações que estão sendo processadas ativamente pela CPU. Os registradores são componentes fundamentais da arquitetura de um computador e desempenham um papel crucial no funcionamento do processamento de dados. Aqui estão algumas características e funções dos registradores:
