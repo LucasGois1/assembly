@@ -1,5 +1,9 @@
 # Assembly x86-64 Intel NASM
 
+Link da documentação do NASM: https://www.nasm.us/xdoc/2.16.01/html/nasmdoc0.html
+
+Link da documentação do processador Intel x86-64: https://software.intel.com/content/www/us/en/develop/articles/intel-sdm.html
+
 ## Como funciona um processador?
 
 ## Registradores
@@ -79,14 +83,17 @@ Em resumo, as interrupções são mecanismos críticos para permitir que um sist
 Estrutura basica de um código assembly NASM para arquitetura Intel x86_64(Existem outras sintaxes de assembly):
 
 ```assembly
-global _start
+global start
 
 section .text
-_start:
+start:
     ; codigo aqui
 
 section .data
-    ; dados aqui
+    ; dados ja inicializados aqui
+
+section .bss
+    ; dados nao inicializados aqui
 ```
 
 ### Instruções
@@ -94,9 +101,9 @@ section .data
 As instruções são os comandos que o processador executa. Cada instrução é representada por um código de operação (opcode) que indica o tipo de instrução e os operandos que a acompanham. Os operandos podem ser registradores, valores imediatos, endereços de memória ou rótulos. Aqui estão alguns exemplos de instruções:
 
 ```assembly
-mov eax, 0x1234 ; move o valor 0x1234 para o registrador eax
-add eax, ebx ; adiciona o valor do registrador ebx ao registrador eax
-jmp 0x1234 ; salta para o endereço 0x1234
+mov eax, 0x1234             ; move o valor 0x1234 para o registrador eax
+add eax, ebx                ; adiciona o valor do registrador ebx ao registrador eax
+jmp 0x1234                  ; salta para o endereço 0x1234
 ```
 
 ### Syscalls
@@ -108,25 +115,58 @@ niveis de privilégio, nenhum programa pode acessar diretamente os recursos do s
 Para fazer uma syscall é necessário colocar o numero da syscall no registrador rax e os argumentos nos registradores
 
 ```assembly
-mov rax, 1 ; numero da syscall
+mov rax, 1                  ; numero da syscall
 
 ; registradores de argumentos disponíveis para syscalls, todas syscalls tem limite de 6 argumentos, os registradores são:
 
 ; rdi, rsi, rdx, r10, r8, r9
 
-mov rdi, 1 ; primeiro argumento
-mov rsi, 0x1234 ; segundo argumento
-mov rdx, 0x5678 ; terceiro argumento
-mov r10, 0x9abc ; quarto argumento
-mov r8, 0xdef0 ; quinto argumento
-mov r9, 0x1234 ; sexto argumento
+mov rdi, 1                  ; primeiro argumento
+mov rsi, 0x1234             ; segundo argumento
+mov rdx, 0x5678             ; terceiro argumento
+mov r10, 0x9abc             ; quarto argumento
+mov r8, 0xdef0              ; quinto argumento
+mov r9, 0x1234              ; sexto argumento
 
 syscall ; executa a syscall
 ```
 
     **Dica** 
     
-    push rax ; salva o valor de rax na pilha (poderia ser outro registrador)
-    pop rax ; recupera o valor de rax da pilha
+    push rax                ; salva o valor de rax na pilha (poderia ser outro registrador)
+    pop rax                 ; recupera o valor de rax da pilha
 
     Portanto a pilha também pode ser usada para salvar valores de registradores
+
+
+### Funções
+
+Funções são trechos de código que podem ser chamados de qualquer lugar do programa, elas são muito úteis para encapsular
+algoretmos e reutiliza-los em vários lugares do programa, para criar uma função basta dar um rótulo e colocar as instruções
+logo abaixo.
+
+```assembly
+funcao:
+    ; codigo aqui
+```
+
+Para chamar uma função basta usar a instrução call
+
+```assembly
+    call funcao
+```
+
+A instrução call é equivalente a:
+    
+```assembly
+    push rip            ; salva o endereço de retorno na pilha
+    jmp funcao          ; salta para a função
+```
+
+Para retornar de uma função basta usar a instrução ret
+
+```assembly
+    mov rax, 0x2000004  ; numero da syscall write
+                        ; restante do algoritmo
+    ret                 ; final da função
+```
