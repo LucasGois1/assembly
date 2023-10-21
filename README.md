@@ -2,8 +2,6 @@
 
 Link da documentação do NASM: https://www.nasm.us/xdoc/2.16.01/html/nasmdoc0.html
 
-Link da documentação do processador Intel x86-64: https://software.intel.com/content/www/us/en/develop/articles/intel-sdm.html
-
 ## Como funciona um processador?
 
 ## Registradores
