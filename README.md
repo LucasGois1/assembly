@@ -1,6 +1,6 @@
 # Assembly x86-64 Intel NASM
 
-Link da documentação do NASM: https://www.nasm.us/xdoc/2.16.01/html/nasmdoc0.html
+Link da documentação do NASM: <https://www.nasm.us/xdoc/2.16.01/html/nasmdoc0.html>
 
 ## Como funciona um processador?
 
@@ -24,19 +24,19 @@ Os registradores desempenham um papel vital na execução de programas e operaç
 
 ### Registrador RFLAGS
 
-O registrador RFLAGS é um registrador especial de 64 bits em processadores x86 que contém várias flags que indicam o estado atual do processador. As flags mais comuns são:
+O registrador `RFLAGS` é um registrador especial de 64 bits em processadores x86 que contém várias flags que indicam o estado atual do processador. As flags mais comuns são:
 
-- CF (Carry Flag): Indica se houve um overflow ou underflow em uma operação aritmética ou lógica. Por exemplo, se uma adição resultar em um valor maior do que o tamanho do registrador, o bit CF será definido para 1.
-- AF (Auxiliary Carry Flag): Indica se houve um carry ou borrow na parte inferior de um byte em uma operação aritmética ou lógica. Essa flag é usada principalmente em operações com números BCD (Binary Coded Decimal).
-- ZF (Zero Flag): Indica se o resultado de uma operação aritmética ou lógica é zero. Se o resultado for zero, o bit ZF será definido para 1.
-- OF (Overflow Flag): Indica se houve um overflow ou underflow com sinal em uma operação aritmética ou lógica. Por exemplo, se uma subtração resultar em um valor menor do que o menor valor representável pelo tipo de dados, o bit OF será definido para 1.
-- SF (Sign Flag): Indica se o resultado de uma operação aritmética ou lógica é negativo. Se o resultado for negativo, o bit SF será definido para 1.
+- `CF` (Carry Flag): Indica se houve um overflow ou underflow em uma operação aritmética ou lógica. Por exemplo, se uma adição resultar em um valor maior do que o tamanho do registrador, o bit `CF` será definido para 1.
+- `AF` (Auxiliary Carry Flag): Indica se houve um carry ou borrow na parte inferior de um byte em uma operação aritmética ou lógica. Essa flag é usada principalmente em operações com números BCD (Binary Coded Decimal).
+- `ZF` (Zero Flag): Indica se o resultado de uma operação aritmética ou lógica é zero. Se o resultado for zero, o bit ZF será definido para 1.
+- `OF` (Overflow Flag): Indica se houve um overflow ou underflow com sinal em uma operação aritmética ou lógica. Por exemplo, se uma subtração resultar em um valor menor do que o menor valor representável pelo tipo de dados, o bit `OF` será definido para 1.
+- `SF` (Sign Flag): Indica se o resultado de uma operação aritmética ou lógica é negativo. Se o resultado for negativo, o bit SF será definido para 1.
 
-A diferença entre OF e CF é que OF indica um overflow ou underflow com sinal, enquanto CF indica um carry ou borrow sem sinal. Em outras palavras, OF é usado para operações com números com sinal, enquanto CF é usado para operações com números sem sinal. Por exemplo, se você adicionar dois números com sinal e o resultado for maior do que o maior valor representável pelo tipo de dados, o bit OF será definido para 1. Se você adicionar dois números sem sinal e o resultado for maior do que o maior valor representável pelo tipo de dados, o bit CF será definido para 1.
+A diferença entre `OF` e `CF` é que `OF` indica um overflow ou underflow com sinal, enquanto `CF` indica um carry ou borrow sem sinal. Em outras palavras, `OF` é usado para operações com números com sinal, enquanto `CF` é usado para operações com números sem sinal. Por exemplo, se você adicionar dois números com sinal e o resultado for maior do que o maior valor representável pelo tipo de dados, o bit `OF` será definido para 1. Se você adicionar dois números sem sinal e o resultado for maior do que o maior valor representável pelo tipo de dados, o bit `CF` será definido para 1.
 
 ### Registradores controlados pelo sistema operacional
 
-Os registradores CR0 até CR8 são registradores de controle em processadores x86 que controlam vários aspectos do funcionamento do processador e do sistema operacional. Cada registrador tem um propósito específico:
+Os registradores `CR0` até `CR8` são registradores de controle em processadores x86 que controlam vários aspectos do funcionamento do processador e do sistema operacional. Cada registrador tem um propósito específico:
 
 - CR0 (Control Register 0): Controla o modo de operação do processador, incluindo o modo protegido, o modo real e o modo virtual. Também controla a habilitação de caches, a proteção de memória e outras características do processador.
 - CR1 (Control Register 1): Não é usado em processadores modernos.
@@ -52,7 +52,7 @@ Em geral, os registradores CR0 até CR4 são os mais importantes e são usados e
 
 A pilha de hardware é uma pilha de dados localizada na memória principal que é usada para armazenar dados temporários e endereços de retorno durante a execução de sub-rotinas. A pilha de hardware é usada principalmente para armazenar endereços de retorno, mas também pode ser usada para armazenar outros dados temporários. A pilha de hardware é usada em conjunto com o registrador RSP para armazenar e recuperar dados da pilha.
 
-**RSP** é um registrador de 64 bits que contém o endereço base da pilha de hardware. O endereço base da pilha de hardware é o endereço do primeiro elemento da pilha. O endereço base da pilha de hardware é inicializado pelo sistema operacional durante a inicialização do processo. O endereço base da pilha de hardware é atualizado automaticamente pelo processador sempre que um elemento é adicionado ou removido da pilha com as instruções PUSH e POP respectivamente
+`**RSP**` é um registrador de 64 bits que contém o endereço base da pilha de hardware. O endereço base da pilha de hardware é o endereço do primeiro elemento da pilha. O endereço base da pilha de hardware é inicializado pelo sistema operacional durante a inicialização do processo. O endereço base da pilha de hardware é atualizado automaticamente pelo processador sempre que um elemento é adicionado ou removido da pilha com as instruções PUSH e POP respectivamente
 
 ## Interrupções
 
@@ -99,9 +99,9 @@ section .bss
 As instruções são os comandos que o processador executa. Cada instrução é representada por um código de operação (opcode) que indica o tipo de instrução e os operandos que a acompanham. Os operandos podem ser registradores, valores imediatos, endereços de memória ou rótulos. Aqui estão alguns exemplos de instruções:
 
 ```assembly
-mov eax, 0x1234             ; move o valor 0x1234 para o registrador eax
-add eax, ebx                ; adiciona o valor do registrador ebx ao registrador eax
-jmp 0x1234                  ; salta para o endereço 0x1234
+    mov eax, 0x1234             ; move o valor 0x1234 para o registrador eax
+    add eax, ebx                ; adiciona o valor do registrador ebx ao registrador eax
+    jmp 0x1234                  ; salta para o endereço 0x1234
 ```
 
 ### Syscalls
@@ -113,29 +113,30 @@ niveis de privilégio, nenhum programa pode acessar diretamente os recursos do s
 Para fazer uma syscall é necessário colocar o numero da syscall no registrador rax e os argumentos nos registradores
 
 ```assembly
-mov rax, 1                  ; numero da syscall
+    mov rax, 1                  ; numero da syscall
 
-; registradores de argumentos disponíveis para syscalls, todas syscalls tem limite de 6 argumentos, os registradores são:
+    ; registradores de argumentos disponíveis para syscalls, todas syscalls tem limite de 6 argumentos, os registradores são:
 
-; rdi, rsi, rdx, r10, r8, r9
+    ; rdi, rsi, rdx, r10, r8, r9
 
-mov rdi, 1                  ; primeiro argumento
-mov rsi, 0x1234             ; segundo argumento
-mov rdx, 0x5678             ; terceiro argumento
-mov r10, 0x9abc             ; quarto argumento
-mov r8, 0xdef0              ; quinto argumento
-mov r9, 0x1234              ; sexto argumento
+    mov rdi, 1                  ; primeiro argumento
+    mov rsi, 0x1234             ; segundo argumento
+    mov rdx, 0x5678             ; terceiro argumento
+    mov r10, 0x9abc             ; quarto argumento
+    mov r8, 0xdef0              ; quinto argumento
+    mov r9, 0x1234              ; sexto argumento
 
-syscall ; executa a syscall
+    syscall ; executa a syscall
 ```
 
-    **Dica** 
-    
+#### Dica
+
+```assembly
     push rax                ; salva o valor de rax na pilha (poderia ser outro registrador)
     pop rax                 ; recupera o valor de rax da pilha
 
-    Portanto a pilha também pode ser usada para salvar valores de registradores
-
+    ; Portanto a pilha também pode ser usada para salvar valores de registradores
+```
 
 ### Funções
 
@@ -155,7 +156,7 @@ Para chamar uma função basta usar a instrução call
 ```
 
 A instrução call é equivalente a:
-    
+
 ```assembly
     push rip            ; salva o endereço de retorno na pilha
     jmp funcao          ; salta para a função
@@ -168,3 +169,87 @@ Para retornar de uma função basta usar a instrução ret
                         ; restante do algoritmo
     ret                 ; final da função
 ```
+
+A instrução ret é equivalente a:
+
+```assembly
+    pop rip             ; recupera o endereço de retorno da pilha
+    jmp rip             ; salta para o endereço de retorno
+```
+
+Ao utilizar funções precisamos estar atentos a uma convenção de chamada de funções:
+
+- Callee saved:
+  - registradores envolvidos: `rbx`, `rbp`, `rsp`, `r12`, `r13`, `r14`, `r15`
+
+- Caller saved:
+  - registradores envolvidos: *todos os outros*
+
+Os registradores "callee-saved" (salvos pelo chamado) e "caller-saved" (salvos pelo chamador) são conceitos relacionados às convenções de chamada de funções em assembly e linguagens de programação de baixo nível. Eles se referem a como os registradores são tratados ao chamar uma função (chamadora) e dentro de uma função (chamada). Aqui está uma explicação e exemplos simples de ambos os métodos:
+
+1. Registradores "Callee-Saved" (Salvos pelo Chamado):
+   Os registradores "callee-saved" são registradores que uma função chamada (sub-rotina) deve salvar e restaurar se desejar usá-los. Isso significa que, se uma função chamada desejar usar um registrador específico, ela deve garantir que o valor original do registrador seja salvo no início da função e restaurado no final da função. Os registradores "callee-saved" são geralmente usados para preservar os valores das variáveis locais da função chamadora.
+
+   Exemplo de código (assembly x86):
+
+    ```assembly
+   section .text
+
+   global main
+
+   main:
+       push ebp        ; Salva o valor antigo do registrador base da pilha
+       mov ebp, esp    ; Atualiza o registrador base da pilha
+
+       ; Qualquer código que use os registradores "callee-saved" aqui
+       ; ...
+
+       pop ebp         ; Restaura o valor original do registrador base da pilha
+       ret
+   ```
+
+   No exemplo acima, o registrador `EBP` é um registrador "callee-saved". A função principal (`main`) salva o valor original de `EBP` no início e restaura-o no final, garantindo que não altere o valor que a função chamadora pode estar usando.
+
+2. Registradores "Caller-Saved" (Salvos pelo Chamador):
+   Os registradores "caller-saved" são registradores que a função chamadora (que chama a função) deve salvar e restaurar se desejar preservar seus valores durante uma chamada de função. Isso significa que, se a função chamadora desejar manter o valor de um registrador "caller-saved", ela deve salvar e restaurar esse valor antes e depois de chamar a função.
+
+   Exemplo de código (assembly x86):
+
+   ```assembly
+   section .text
+
+   global caller_function
+   global callee_function
+
+   caller_function:
+       mov eax, 42     ; Define um valor em eax
+
+       push eax        ; Salva o valor de eax na pilha
+       call callee_function
+       pop eax         ; Restaura o valor de eax da pilha
+
+       ; Agora podemos usar eax sem se preocupar com a função chamada
+       ; ...
+
+       ret
+
+   callee_function:
+       push ebp        ; Salva o valor antigo do registrador base da pilha
+       mov ebp, esp    ; Atualiza o registrador base da pilha
+
+       ; Usamos eax e devemos restaurá-lo antes de retornar
+       ; ...
+
+       pop ebp         ; Restaura o valor original do registrador base da pilha
+       ret
+   ```
+
+Neste exemplo, o registrador `EAX` é um registrador "caller-saved". A função chamadora (`caller_function`) salva seu valor antes de chamar a função chamada (`callee_function`) e o restaura após a chamada, para garantir que o valor original de `EAX` seja mantido.
+
+Portanto:
+
+- Salve todos os registradores caller-saved que voce queira que sobrevivam a uma chamada de função (use `push` para isso)
+- Armazene os argumentos da função nos registradores relevantes: `rdi, rsi, etc...`
+- Chame a função utilizando `call`
+- Depois que a função retornar, `**rax**` conterá o valor de retorno, caso precise retornar 2 valores você pode utilizar o `rdx`
+- Restaure os registradores caller-saved que voce salvou anteriormente (use `pop` para isso)
