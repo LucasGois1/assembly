@@ -392,3 +392,5 @@ Portanto:
 - Restaure os registradores caller-saved que voce salvou anteriormente (use `pop` para isso)
 
 Importante: `RSP` e `RBP` são reservados para a STACK (pilha), portanto não devem ser utilizados para armazenar valores pois esta pratica pode causar problemas. Imagine que a cada função chamada o código está adicionando na pilha o endereço das instruções que devem ser executadas após o retorno da função, se você sobrescrever o valor de `RSP` ou `RBP` você pode acabar sobrescrevendo o endereço de retorno da função e isso pode causar um comportamento inesperado.
+
+#### Em progresso 👷🏻
