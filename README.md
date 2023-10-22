@@ -41,9 +41,9 @@ desta forma vai manter seu cérebro "no tranco".
 
 Aqui eu listarei todos os artigos/documentações/livros e quaisquer fontes de estudo que eu utilizei para aprender assembly e escrever este documento.
 
-- Link da documentação do NASM: <https://www.nasm.us/xdoc/2.16.01/html/nasmdoc0.html>
+- Documentação do NASM: <https://www.nasm.us/xdoc/2.16.01/html/nasmdoc0.html>
 
-- Link do livro "Programação em baixo nível": <https://www.amazon.com.br/gp/product/8575226673/ref=ppx_yo_dt_b_asin_title_o07_s01?ie=UTF8&psc=1>
+- Livro "Programação em baixo nível": <https://www.amazon.com.br/gp/product/8575226673/ref=ppx_yo_dt_b_asin_title_o07_s01?ie=UTF8&psc=1>
 
 - Hierarquia de memória do computador: <https://annamalaiuniversity.ac.in/studport/download/engg/it/resources/Unit-IV%20&%20V%20Course%20Material.pdf>
 
