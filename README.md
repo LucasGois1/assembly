@@ -6,7 +6,7 @@
 
 A intenção deste projeto é reunir todo o conhecimento que eu adquiri sobre a linguagem  Assembly NASM em um único documento, para que eu possa revisar e relembrar o que aprendi e ao mesmo tempo ajudar outras pessoas que também tem interesse em aprender Assembly.
 
-Eu mesmo já tentei começar algumas vezes e sempre me desaniva no inicio por não saber por onde começar, achar o conteúdo extremamente difícil por não saber algumas bases importantes e não ter um material que me guiasse de maneira mais simples e objetiva.
+Eu mesmo já tentei começar algumas vezes e sempre me desanimava no inicio por não saber por onde começar, achar o conteúdo extremamente difícil por não saber algumas bases importantes e não ter um material que me guiasse de maneira mais simples e objetiva.
 
 Como é um assunto extremamente complexo, extenso, que requer conhecimento de vários assuntos diferentes e pouquissimo divulgado, acaba sendo muito difícil encontrar conteúdo de qualidade sobre o assunto de maneira mais completa e objetiva.
 
