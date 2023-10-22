@@ -22,6 +22,15 @@ Registradores são elementos de armazenamento de alta velocidade localizados na 
 
 Os registradores desempenham um papel vital na execução de programas e operações de computador, permitindo que a CPU processe dados de maneira eficiente e rápida. Eles são uma parte essencial da arquitetura do computador e contribuem para o desempenho e a capacidade de processamento de dados do sistema.
 
+Abaixo você pode ver os registradores da arquitetura x86-64:
+
+![Registradores x86-64](./assets/registers.png)
+
+Falaremos mais sobre cada registrador ao decorrer deste documento:
+
+- Qual o propósito de cada registrador
+- Como cada registrador é usado
+
 ### Registrador RFLAGS
 
 O registrador `RFLAGS` é um registrador especial de 64 bits em processadores x86 que contém várias flags que indicam o estado atual do processador. As flags mais comuns são:
@@ -52,7 +61,7 @@ Em geral, os registradores CR0 até CR4 são os mais importantes e são usados e
 
 A pilha de hardware é uma pilha de dados localizada na memória principal que é usada para armazenar dados temporários e endereços de retorno durante a execução de sub-rotinas. A pilha de hardware é usada principalmente para armazenar endereços de retorno, mas também pode ser usada para armazenar outros dados temporários. A pilha de hardware é usada em conjunto com o registrador RSP para armazenar e recuperar dados da pilha.
 
-`**RSP**` é um registrador de 64 bits que contém o endereço base da pilha de hardware. O endereço base da pilha de hardware é o endereço do primeiro elemento da pilha. O endereço base da pilha de hardware é inicializado pelo sistema operacional durante a inicialização do processo. O endereço base da pilha de hardware é atualizado automaticamente pelo processador sempre que um elemento é adicionado ou removido da pilha com as instruções PUSH e POP respectivamente
+`RSP` é um registrador de 64 bits que contém o endereço base da pilha de hardware. O endereço base da pilha de hardware é o endereço do primeiro elemento da pilha. O endereço base da pilha de hardware é inicializado pelo sistema operacional durante a inicialização do processo. O endereço base da pilha de hardware é atualizado automaticamente pelo processador sempre que um elemento é adicionado ou removido da pilha com as instruções PUSH e POP respectivamente
 
 ## Interrupções
 
@@ -251,5 +260,7 @@ Portanto:
 - Salve todos os registradores caller-saved que voce queira que sobrevivam a uma chamada de função (use `push` para isso)
 - Armazene os argumentos da função nos registradores relevantes: `rdi, rsi, etc...`
 - Chame a função utilizando `call`
-- Depois que a função retornar, `**rax**` conterá o valor de retorno, caso precise retornar 2 valores você pode utilizar o `rdx`
+- Depois que a função retornar, `rax` conterá o valor de retorno, caso precise retornar 2 valores você pode utilizar o `rdx`
 - Restaure os registradores caller-saved que voce salvou anteriormente (use `pop` para isso)
+
+Importante: `RSP` e `RBP` são reservados para a STACK (pilha), portanto não devem ser utilizados para armazenar valores pois esta pratica pode causar problemas. Imagine que a cada função chamada o código está adicionando na pilha o endereço das instruções que devem ser executadas após o retorno da função, se você sobrescrever o valor de `RSP` ou `RBP` você pode acabar sobrescrevendo o endereço de retorno da função e isso pode causar um comportamento inesperado.
